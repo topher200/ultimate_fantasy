@@ -1,0 +1,29 @@
+<h1>Listing fantasy_players</h1>
+
+<table>
+  <tr>
+    <th>Owner</th>
+    <th>Player</th>
+    <th>Status</th>
+    <th>Week</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @fantasy_players.each do |fantasy_player| %>
+  <tr>
+    <td><%= fantasy_player.owner %></td>
+    <td><%= fantasy_player.player %></td>
+    <td><%= fantasy_player.status %></td>
+    <td><%= fantasy_player.week %></td>
+    <td><%= link_to 'Show', fantasy_player %></td>
+    <td><%= link_to 'Edit', edit_fantasy_player_path(fantasy_player) %></td>
+    <td><%= link_to 'Destroy', fantasy_player, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Fantasy player', new_fantasy_player_path %>

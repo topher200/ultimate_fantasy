@@ -1,4 +1,6 @@
 Fantasy::Application.routes.draw do
+  resources :fantasy_players
+
   resources :owners
 
   resources :players

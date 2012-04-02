@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  owner: 
+  player: 
+  status: 1
+  week: 1
+
+two:
+  owner: 
+  player: 
+  status: 1
+  week: 1

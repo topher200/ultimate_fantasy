@@ -1,0 +1,33 @@
+<%= form_for(@fantasy_player) do |f| %>
+  <% if @fantasy_player.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@fantasy_player.errors.count, "error") %> prohibited this fantasy_player from being saved:</h2>
+
+      <ul>
+      <% @fantasy_player.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :owner %><br />
+    <%= f.text_field :owner %>
+  </div>
+  <div class="field">
+    <%= f.label :player %><br />
+    <%= f.text_field :player %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.number_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :week %><br />
+    <%= f.number_field :week %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
