@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120402043851) do
+ActiveRecord::Schema.define(:version => 20120402044407) do
+
+  create_table "players", :force => true do |t|
+    t.integer  "number"
+    t.string   "name"
+    t.string   "school"
+    t.integer  "ultimate_team_id"
+    t.integer  "height"
+    t.integer  "weight"
+    t.string   "club_team"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "players", ["ultimate_team_id"], :name => "index_players_on_ultimate_team_id"
 
   create_table "ultimate_teams", :force => true do |t|
     t.string   "name"
