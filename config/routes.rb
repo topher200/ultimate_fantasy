@@ -1,4 +1,6 @@
 Fantasy::Application.routes.draw do
+  resources :owners
+
   resources :players
 
   resources :ultimate_teams
