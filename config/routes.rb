@@ -1,4 +1,6 @@
 Fantasy::Application.routes.draw do
+  resources :players
+
   resources :ultimate_teams
 
   get "home/index"
