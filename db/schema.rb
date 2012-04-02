@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120402051520) do
+ActiveRecord::Schema.define(:version => 20120402054016) do
 
   create_table "fantasy_players", :force => true do |t|
     t.integer  "owner_id"
@@ -55,6 +55,20 @@ ActiveRecord::Schema.define(:version => 20120402051520) do
   end
 
   add_index "players", ["ultimate_team_id"], :name => "index_players_on_ultimate_team_id"
+
+  create_table "stats", :force => true do |t|
+    t.integer  "player_id"
+    t.integer  "game_id"
+    t.integer  "goals"
+    t.integer  "assists"
+    t.integer  "ds"
+    t.integer  "turns"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "stats", ["game_id"], :name => "index_stats_on_game_id"
+  add_index "stats", ["player_id"], :name => "index_stats_on_player_id"
 
   create_table "ultimate_teams", :force => true do |t|
     t.string   "name"

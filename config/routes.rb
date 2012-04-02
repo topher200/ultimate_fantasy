@@ -1,4 +1,6 @@
 Fantasy::Application.routes.draw do
+  resources :stats
+
   resources :games
 
   resources :fantasy_players
