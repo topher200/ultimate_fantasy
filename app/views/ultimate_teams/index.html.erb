@@ -1,0 +1,23 @@
+<h1>Listing ultimate_teams</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ultimate_teams.each do |ultimate_team| %>
+  <tr>
+    <td><%= ultimate_team.name %></td>
+    <td><%= link_to 'Show', ultimate_team %></td>
+    <td><%= link_to 'Edit', edit_ultimate_team_path(ultimate_team) %></td>
+    <td><%= link_to 'Destroy', ultimate_team, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ultimate team', new_ultimate_team_path %>
