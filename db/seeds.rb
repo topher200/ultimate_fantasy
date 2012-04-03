@@ -21,7 +21,7 @@ def find_team (team_string)
   return UltimateTeam.create(:name => team_string)
 end
 
-CSV.foreach(Rails.root.join('lib', 'data', 'players.csv'),
+CSV.foreach(Rails.root.join('lib', 'data', 'indianapolis.csv'),
             :headers => :first_row, :col_sep => "|") do |player|
   Player.create(:name => player['name'], :number => player['number'],
                 :school => player['school'],
