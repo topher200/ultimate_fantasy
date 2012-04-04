@@ -33,3 +33,5 @@ csv_files.each do |filename|
     p.save
   end
 end
+
+Owner.create(:name => "Topher")
