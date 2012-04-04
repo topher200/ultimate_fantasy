@@ -21,12 +21,15 @@ def find_team (team_string)
   return UltimateTeam.create(:name => team_string)
 end
 
-CSV.foreach(Rails.root.join('lib', 'data', 'indianapolis.csv'),
-            :headers => :first_row, :col_sep => "|") do |player|
-  p = Player.new(:name => player['name'],
-                 :ultimate_team => find_team("Indianapolis"))
-  player.headers.each do |header|
-    p[header] = player[header] if player[header]
+csv_files = Dir[Rails.root.join('lib', 'data', '*.csv')]
+csv_files.each do |filename|
+  team_name = File.basename((filename), ".csv")
+  CSV.foreach(filename, :headers => :first_row, :col_sep => "|") do |player|
+    p = Player.new(:name => player['name'],
+                   :ultimate_team => find_team(team_name))
+    player.headers.each do |header|
+      p[header] = player[header] if player[header]
+    end
+    p.save
   end
-  p.save
 end
