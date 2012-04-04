@@ -23,7 +23,10 @@ end
 
 CSV.foreach(Rails.root.join('lib', 'data', 'indianapolis.csv'),
             :headers => :first_row, :col_sep => "|") do |player|
-  Player.create(:name => player['name'], :number => player['number'],
-                :school => player['school'],
-                :ultimate_team => find_team(player['team']))
+  p = Player.new(:name => player['name'],
+                 :ultimate_team => find_team("Indianapolis"))
+  player.headers.each do |header|
+    p[header] = player[header] if player[header]
+  end
+  p.save
 end
