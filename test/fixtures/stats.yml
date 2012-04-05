@@ -1,16 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
 
 one:
-  player: 
-  game: 
+  player: one
+  game: one
   goals: 1
   assists: 1
   ds: 1
   turns: 1
 
 two:
-  player: 
-  game: 
+  player: one
+  game: one
   goals: 1
   assists: 1
   ds: 1

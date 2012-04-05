@@ -4,7 +4,7 @@ one:
   number: 1
   name: MyString
   school: MyString
-  ultimate_team: 
+  ultimate_team: one
   height: 1
   weight: 1
   club_team: MyString
@@ -13,7 +13,7 @@ two:
   number: 1
   name: MyString
   school: MyString
-  ultimate_team: 
+  ultimate_team: one
   height: 1
   weight: 1
   club_team: MyString
