@@ -19,7 +19,7 @@ class DraftController < ApplicationController
 drafted to #{Owner.find(new_owner).name}."
     end
 
-    redirect_to :action => 'index', :method => :get
+    redirect_to :action => 'index'
   end
 
 end
