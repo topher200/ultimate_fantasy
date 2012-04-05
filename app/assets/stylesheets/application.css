@@ -5,3 +5,14 @@
  *= require_self
  *= require_tree . 
 */
+
+.info_box {
+  background: rosybrown;
+  margin: 1em 0;
+  padding: 4px;
+}
+.error_box {
+  background: red;
+  margin: 1em 0;
+  padding: 4px;
+}
