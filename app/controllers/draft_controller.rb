@@ -1,7 +1,7 @@
 class DraftController < ApplicationController
   def index
     puts "in draft::index"
-    @players = Player.all
+    @players = Player.undrafted
   end
 
   def draft
