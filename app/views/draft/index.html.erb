@@ -20,7 +20,8 @@
     <td><%= player.height %></td>
     <td><%= player.weight %></td>
     <td><%= player.club_team %></td>
-    <td><%= link_to 'Draft', draft_path(:player => player, :new_owner => "1")
+    <td><%= button_to 'Draft', { :action => "draft", :method => :post,
+      :player => player, :new_owner => "1" }
       %></td>
   </tr>
 <% end %>

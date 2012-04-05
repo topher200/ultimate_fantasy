@@ -1,5 +1,11 @@
 class DraftController < ApplicationController
   def index
+    puts "in draft::index"
+    @players = Player.all
+  end
+
+  def draft
+    puts "in draft::draft"
     drafted_player = params[:player]
     new_owner = params[:new_owner]
 
@@ -12,7 +18,8 @@ class DraftController < ApplicationController
       flash[:notice] = "#{Player.find(drafted_player).name} was successfully
 drafted to #{Owner.find(new_owner).name}."
     end
-    
-    @players = Player.all
+
+    redirect_to :action => 'index', :method => :get
   end
+
 end
