@@ -4,6 +4,6 @@ class FantasyPlayer < ActiveRecord::Base
   has_many :stats, :through => :player
 
   def self.current_players
-    self.where(:week => 0)
+    self.where(:week => nil)
   end
 end
