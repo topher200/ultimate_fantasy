@@ -2,7 +2,7 @@ class DraftController < ApplicationController
   def index
     puts "in draft::index"
     @players = Player.undrafted
-    @owner_array = []
+    @owner_array = [["", 0]]
     Owner.all.each do |owner|
       @owner_array += [[owner.name, owner.id]]
     end
