@@ -6,6 +6,12 @@
  *= require_tree . 
 */
 
+table {
+    border-collapse:collapse;
+}
+table, th, td {
+    border: 1px solid black;
+}
 .info_box {
   background: rosybrown;
   margin: 1em 0;
