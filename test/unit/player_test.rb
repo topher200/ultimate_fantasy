@@ -16,8 +16,4 @@ class PlayerTest < ActiveSupport::TestCase
       assert (not FantasyPlayer.current_players.find_by_id(player.id))
     end
   end
-
-  test "drafted player is drafted" do
-    assert Player.drafted? @drafted_player
-  end
 end

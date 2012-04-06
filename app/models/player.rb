@@ -13,9 +13,4 @@ class Player < ActiveRecord::Base
   def self.undrafted
     undrafted_players = Player.all - Player.drafted
   end
-
-  # Returns true if there is a current matching FantasyPlayer
-  def self.drafted?(player)
-    FantasyPlayer.current_players.find_by_id(player.id) != nil
-  end
 end
