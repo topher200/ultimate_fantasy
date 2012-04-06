@@ -1,22 +1,19 @@
 <h1>Listing owners</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<% @players_by_owner.keys do |owner| %>
+  <h2><%= owner.name %></h2>
+  <table>
+    <tr>
+      <th>Player</th>
+    </tr>
 
-<% @owners.each do |owner| %>
-  <tr>
-    <td><%= owner.name %></td>
-    <td><%= link_to 'Show', owner %></td>
-    <td><%= link_to 'Edit', edit_owner_path(owner) %></td>
-    <td><%= link_to 'Destroy', owner, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+    <% @players_by_owner[owner].each do |player| %>
+      <tr>
+        <td><%= player.name %></td>
+      </tr>
+    <% end %>
+  </table>
 <% end %>
-</table>
 
 <br />
 
