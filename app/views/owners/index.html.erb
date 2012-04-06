@@ -3,16 +3,13 @@
 <% @players_by_owner.keys.each do |owner| %>
   <h2><%= owner.name %></h2>
   <table>
-    <tr>
-      <th>Player</th>
-    </tr>
-
     <% @players_by_owner[owner].each do |player| %>
       <tr>
         <td><%= player.name %></td>
       </tr>
     <% end %>
   </table>
+  <p> <%= @players_by_owner[owner].length %> players </p>
 <% end %>
 
 <br />
