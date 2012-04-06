@@ -20,7 +20,8 @@
     <td><%= player.weight %></td>
     <td><%= player.club_team %></td>
     <td>
-      <%= form_tag(:action => "draft", :method=>'post') do -%>
+      <%= form_tag(:action => "draft", :method=>'post',
+        :player => player) do -%>
         <%= select_tag(:new_owner, options_for_select(@owner_array)) %>
         <%= submit_tag 'Draft' %>
       <% end %>
