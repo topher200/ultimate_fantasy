@@ -5,9 +5,11 @@ class Player < ActiveRecord::Base
 
   # Returns all the players who have a current matching FantasyPlayer
   def self.drafted
+    drafted_players = []
     FantasyPlayer.current_players.each do |fantasy_player|
-      Player.find fantasy_player.player
+      drafted_players << Player.find(fantasy_player.player)
     end
+    return drafted_players
   end
   
   def self.undrafted
