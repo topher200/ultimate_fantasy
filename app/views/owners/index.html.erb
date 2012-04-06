@@ -1,6 +1,6 @@
 <h1>Listing owners</h1>
 
-<% @players_by_owner.keys do |owner| %>
+<% @players_by_owner.keys.each do |owner| %>
   <h2><%= owner.name %></h2>
   <table>
     <tr>
