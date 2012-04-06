@@ -3,6 +3,7 @@ require 'test_helper'
 class PlayerTest < ActiveSupport::TestCase
   def setup
     @drafted_player = players(:one)
+    @undrafted_player = players(:undrafted)
   end
 
   test "all players in drafted list are drafted" do
@@ -21,5 +22,13 @@ class PlayerTest < ActiveSupport::TestCase
     Player.undrafted.each do |player|
       assert_nil FantasyPlayer.current_players.find_by_id(player.id)
     end
+  end
+
+  test "our undrafted player is in undrafted list" do
+    assert Player.undrafted.include? @undrafted_player
+  end
+
+  test "our undrafted player is in not in drafted list" do
+    assert (not Player.drafted.include? @undrafted_player)
   end
 end

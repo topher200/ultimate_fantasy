@@ -17,3 +17,13 @@ two:
   height: 1
   weight: 1
   club_team: MyString
+
+undrafted:
+  number: 10
+  name: MyString
+  school: MyString
+  ultimate_team: one
+  height: 1
+  weight: 1
+  club_team: MyString
+
