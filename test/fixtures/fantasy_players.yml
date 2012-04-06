@@ -1,13 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
 
-one:
+current_fantasy_player:
+  owner: one
+  player: one
+  
+week_one_fantasy_player:
   owner: one
   player: one
   status: 1
   week: 1
 
-two:
-  owner: one
-  player: one
-  status: 1
-  week: nil
