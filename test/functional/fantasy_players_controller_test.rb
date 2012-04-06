@@ -2,7 +2,7 @@ require 'test_helper'
 
 class FantasyPlayersControllerTest < ActionController::TestCase
   setup do
-    @fantasy_player = fantasy_players(:one)
+    @fantasy_player = fantasy_players(:current_fantasy_player)
     sign_in
   end
 
