@@ -3,6 +3,7 @@ require 'test_helper'
 class StatsControllerTest < ActionController::TestCase
   setup do
     @stat = stats(:one)
+    sign_in
   end
 
   test "should get index" do

@@ -3,6 +3,7 @@ require 'test_helper'
 class FantasyPlayersControllerTest < ActionController::TestCase
   setup do
     @fantasy_player = fantasy_players(:one)
+    sign_in
   end
 
   test "should get index" do
