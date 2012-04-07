@@ -3,9 +3,25 @@
 <% @players_by_owner.keys.each do |owner| %>
   <h2><%= owner.name %></h2>
   <table>
+    <tr>
+      <th>Name</th>
+      <th>Number</th>
+      <th>Ultimate team</th>
+      <th>School</th>
+      <th>Club team</th>
+      <th>Height</th>
+      <th>Weight</th>
+    </tr>
+
     <% @players_by_owner[owner].each do |player| %>
       <tr>
         <td><%= player.name %></td>
+        <td><%= player.number %></td>
+        <td><%= player.ultimate_team.name %></td>
+        <td><%= player.school %></td>
+        <td><%= player.club_team %></td>
+        <td><%= player.height %></td>
+        <td><%= player.weight %></td>
       </tr>
     <% end %>
   </table>
