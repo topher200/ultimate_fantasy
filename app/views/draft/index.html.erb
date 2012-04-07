@@ -1,23 +1,23 @@
 <table>
   <tr>
-    <th>Number</th>
     <th>Name</th>
-    <th>School</th>
     <th>Ultimate team</th>
+    <th>Number</th>
+    <th>School</th>
+    <th>Club team</th>
     <th>Height</th>
     <th>Weight</th>
-    <th>Club team</th>
     <th>Draft to Team</th>
   </tr>
 <% @players.each do |player| %>
   <tr>
-    <td><%= player.number %></td>
     <td><%= player.name %></td>
-    <td><%= player.school %></td>
     <td><%= player.ultimate_team.name %></td>
+    <td><%= player.number %></td>
+    <td><%= player.school %></td>
+    <td><%= player.club_team %></td>
     <td><%= player.height %></td>
     <td><%= player.weight %></td>
-    <td><%= player.club_team %></td>
     <td>
       <%= form_tag(:action => "draft", :method=>'post',
         :player => player) do -%>
