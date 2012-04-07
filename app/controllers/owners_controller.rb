@@ -2,7 +2,7 @@ class OwnersController < ApplicationController
   # GET /owners
   # GET /owners.json
   def index
-    @owners = Owner.all
+    @players_by_owner = Owner.players_by_owner
 
     respond_to do |format|
       format.html # index.html.erb

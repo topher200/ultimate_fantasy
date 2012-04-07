@@ -9,7 +9,7 @@ class OwnersControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:owners)
+    assert_not_nil assigns(:players_by_owner)
   end
 
   test "should get new" do
