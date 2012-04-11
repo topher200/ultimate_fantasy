@@ -6,7 +6,7 @@ class OwnerTest < ActiveSupport::TestCase
     @player = players(:one)
   end
 
-  test "known owner/player combo is in players_by_owner" do
+  test "players_by_owner returns known owner/player combo" do
     assert Owner.players_by_owner[@owner].include? @player
   end
 
