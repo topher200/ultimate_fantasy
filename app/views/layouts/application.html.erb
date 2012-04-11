@@ -7,6 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="/">Pleasant Ultimate Fantasy</a>
+        <ul class="nav">
+          <li class="active"><a href="/owners">Teams</a></li>
+        </ul>
+        <ul class="nav pull-right">
+          <li><a href="/sign_in">Sign In</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
   <% if flash[:error] %>
     <h3 class="error_box"><%= flash[:error] %> </h3>
