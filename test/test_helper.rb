@@ -10,8 +10,8 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
-  def sign_in
-    @request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::
-      Basic.encode_credentials('topher', 'nickreed')
-  end
+end
+
+class ActionController::TestCase
+  include Devise::TestHelpers
 end
