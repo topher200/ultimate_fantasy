@@ -8,25 +8,13 @@
 
 require 'csv'
 
-
-def find_team (team_string)
-  UltimateTeam.all.each do |team|
-    if team.name == team_string
-      return team
-    end
-  end
-
-  # We haven't found his team... we must need to make it!
-  puts 'creating team ' + team_string
-  return UltimateTeam.create(:name => team_string)
-end
-
 csv_files = Dir[Rails.root.join('lib', 'data', '*.csv')]
 csv_files.each do |filename|
   team_name = File.basename((filename), ".csv")
   CSV.foreach(filename, :headers => :first_row, :col_sep => "|") do |player|
-    p = Player.new(:name => player['name'],
-                   :ultimate_team => find_team(team_name))
+    p = Player.find_or_create_by_name(:name => player['name'], :ultimate_team =>
+                                      UltimateTeam.find_or_create_by_name(:name =>
+                                                                          team_name))
     player.headers.each do |header|
       p[header] = player[header] if player[header]
     end
@@ -34,5 +22,6 @@ csv_files.each do |filename|
   end
 end
 
-Owner.create(:name => "Topher")
-User.create(:email => "topher200@gmail.com", :password => "topherpassword")
+Owner.find_or_create_by_name(:name => "Topher")
+User.find_or_create_by_email(:email => "topher200@gmail.com",
+                             :password => "topherpassword")
