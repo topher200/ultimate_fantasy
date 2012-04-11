@@ -4,6 +4,7 @@ gem 'rails', '3.1.0'
 gem 'jquery-rails'
 gem 'thin'
 gem 'less-rails-bootstrap'
+gem 'devise'
 
 # Gems used only for assets and not required
 # in production environments by default.
