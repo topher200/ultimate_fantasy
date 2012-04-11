@@ -6,8 +6,6 @@
 #
 one: 
   email: "fake@asdf.com"
-  password: "password"
   
 two:
   email: "fake2@asdf.com"
-  password: "password"
