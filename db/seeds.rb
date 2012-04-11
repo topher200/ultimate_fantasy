@@ -24,4 +24,4 @@ end
 
 Owner.find_or_create_by_name(:name => "Topher")
 User.find_or_create_by_email(:email => "topher200@gmail.com",
-                             :password => "topherpassword")
+                             :password => "topherpassword", :admin => :true)
