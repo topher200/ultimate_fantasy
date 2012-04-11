@@ -10,17 +10,21 @@
 body {
     padding:40px;
 }
+
 table {
     border-collapse:collapse;
 }
+
 table, th, td {
     border: 1px solid black;
 }
+
 .info_box {
   background: rosybrown;
   margin: 1em 0;
   padding: 4px;
 }
+
 .error_box {
   background: red;
   margin: 1em 0;
