@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 end
 
 def confirm_admin
-  if not current_user.try(:admin?)
+  if (params[:controller] != 'devise/sessions' and not current_user.try(:admin?))
     logger.error("Must be Topher to do that!")
     redirect_to :controller => '/home'
   end
