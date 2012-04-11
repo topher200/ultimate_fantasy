@@ -7,6 +7,9 @@
  *= require twitter/bootstrap
 */
 
+body {
+    padding:40px;
+}
 table {
     border-collapse:collapse;
 }
