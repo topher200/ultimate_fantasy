@@ -35,3 +35,4 @@ csv_files.each do |filename|
 end
 
 Owner.create(:name => "Topher")
+User.create(:email => "topher200@gmail.com", :password => "topherpassword")
