@@ -3,7 +3,6 @@ require 'test_helper'
 class OwnersControllerTest < ActionController::TestCase
   setup do
     @owner = owners(:one)
-    sign_in
   end
 
   test "should get index" do

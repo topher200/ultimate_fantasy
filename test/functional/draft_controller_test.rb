@@ -4,7 +4,6 @@ class DraftControllerTest < ActionController::TestCase
   setup do
     @player = players(:one)
     @owner = owners(:one)
-    sign_in
   end
 
   test "should get index" do
