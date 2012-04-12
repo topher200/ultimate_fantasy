@@ -1,7 +1,12 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+    @admin_user = users(:admin)
+  end
+
+  test "owner returns the correct owner" do
+    owner = User.find_owner_for_user(@admin_user)
+    assert_equal owner.user, @admin_user
+  end
 end
