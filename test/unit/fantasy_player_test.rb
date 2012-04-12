@@ -11,7 +11,11 @@ class FantasyPlayerTest < ActiveSupport::TestCase
     end
   end
 
-  test "current_players returns our 1 current player" do
-    assert_equal FantasyPlayer.current_players[0], @drafted_player
+  test "current_players includes our known current player" do
+    assert FantasyPlayer.current_players.include? @drafted_player
+  end
+  
+  test "current_players returns our 4 current players" do
+    assert_equal FantasyPlayer.current_players.length, 4
   end
 end

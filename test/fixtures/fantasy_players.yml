@@ -3,10 +3,25 @@
 current_fantasy_player:
   owner: one
   player: one
-  
+  status: 1
+
 week_one_fantasy_player:
   owner: one
   player: one
-  status: 1
   week: 1
+  status: 1
 
+benched_fantasy_player:
+  owner: one
+  player: one
+  status: 0
+
+starting_fantasy_player:
+  owner: one
+  player: one
+  status: 1
+
+negative_fantasy_player:
+  owner: one
+  player: one
+  status: 2
