@@ -1,5 +1,12 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  http_basic_authenticate_with  :name => "topher", :password => "nickreed", \
-    :except => [:index, :show] 
+  
+  before_filter :confirm_admin, :except => [:index, :show]
+end
+
+def confirm_admin
+  if (params[:controller] != 'devise/sessions' and not current_user.try(:admin?))
+    logger.error("Must be Topher to do that!")
+    redirect_to :controller => '/home'
+  end
 end

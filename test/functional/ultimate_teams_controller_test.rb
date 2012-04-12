@@ -3,7 +3,7 @@ require 'test_helper'
 class UltimateTeamsControllerTest < ActionController::TestCase
   setup do
     @ultimate_team = ultimate_teams(:one)
-    sign_in
+    sign_in users(:admin)
   end
 
   test "should get index" do

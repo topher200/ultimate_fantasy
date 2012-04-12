@@ -3,7 +3,7 @@ require 'test_helper'
 class PlayersControllerTest < ActionController::TestCase
   setup do
     @player = players(:one)
-    sign_in
+    sign_in users(:admin)
   end
 
   test "should get index" do
