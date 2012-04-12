@@ -1,5 +1,6 @@
 class Owner < ActiveRecord::Base
   has_many :fantasy_players
+  belongs_to :user
 
   # Returns a hash of owner => [players]
   def self.players_by_owner
