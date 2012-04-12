@@ -5,13 +5,13 @@ class FantasyPlayerTest < ActiveSupport::TestCase
     @drafted_player = fantasy_players(:current_fantasy_player)
   end
   
-  test "only current players returned" do
-    FantasyPlayer.current_players.each do | player |
+  test "current_players only returns players that are current" do
+    FantasyPlayer.current_players.each do |player|
       assert player.week == nil
     end
   end
 
-  test "our 1 current player is returned in current player list" do
-    assert_equal @drafted_player, FantasyPlayer.current_players[0]
+  test "current_players returns our 1 current player" do
+    assert_equal FantasyPlayer.current_players[0], @drafted_player
   end
 end
