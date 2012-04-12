@@ -13,8 +13,8 @@
 
 <% @fantasy_players.each do |fantasy_player| %>
   <tr>
-    <td><%= fantasy_player.owner %></td>
-    <td><%= fantasy_player.player %></td>
+    <td><%= fantasy_player.owner.name %></td>
+    <td><%= fantasy_player.player.name %></td>
     <td><%= fantasy_player.status %></td>
     <td><%= fantasy_player.week %></td>
     <td><%= link_to 'Show', fantasy_player %></td>
