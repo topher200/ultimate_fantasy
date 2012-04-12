@@ -6,9 +6,11 @@
     <th>Player</th>
     <th>Status</th>
     <th>Week</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <% if is_admin? %>
+      <th></th>
+      <th></th>
+      <th></th>
+    <% end %>
   </tr>
 
 <% @fantasy_players.each do |fantasy_player| %>
@@ -17,9 +19,11 @@
     <td><%= fantasy_player.player.name %></td>
     <td><%= fantasy_player.status %></td>
     <td><%= fantasy_player.week %></td>
-    <td><%= link_to 'Show', fantasy_player %></td>
-    <td><%= link_to 'Edit', edit_fantasy_player_path(fantasy_player) %></td>
-    <td><%= link_to 'Destroy', fantasy_player, confirm: 'Are you sure?', method: :delete %></td>
+    <% if is_admin? %>
+      <td><%= link_to 'Show', fantasy_player %></td>
+      <td><%= link_to 'Edit', edit_fantasy_player_path(fantasy_player) %></td>
+      <td><%= link_to 'Destroy', fantasy_player, confirm: 'Are you sure?', method: :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
