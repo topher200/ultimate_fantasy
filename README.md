@@ -9,3 +9,14 @@ Quirks:
   1. Once a player has been duplicated in this manner, they should not be
   modified. The "current roster" players (those with week nil) can be traded,
   dropped, or modified at any time.
+
+- The FantasyPlayers model also keeps track of the status of its players. The
+  status record must be an integer 0, 1, or 2:
+  0: benched
+  1: starting
+  2: negative
+  There should be at most 6 players on a team starting, and 1 player as the
+  negative.  This status record is consistant with the "week" record described
+  above: if the player has a week of 1 and a status 1, they started week 1. If
+  they have a status 1 with a week nil, they are on the current roster and
+  starting.
