@@ -6,6 +6,12 @@
     <% @players_by_status[status_tuple[0]].each do |fantasy_player| %>
       <tr>
         <td><%= fantasy_player.player.name %></td>
+        <td>
+          <%= button_to "Start", {:controller => 'fantasy_players',
+              :action => 'update', :id => fantasy_player.id,
+              :fantasy_player => {:status => "1"}},
+            :method => :put %>
+        </td>
       </tr>
     <% end %>
   </table>
