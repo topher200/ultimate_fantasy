@@ -2,10 +2,11 @@
 
 <% @statuses.each do |status_tuple| %>
   <h2><%= status_tuple[1] %></h2>
-  <table><tr>
-    <% @players_by_status[status_tuple[0]].each do |player| %>
-      <td>asdf</td>
-      <td><%= player %></td>
+  <table>
+    <% @players_by_status[status_tuple[0]].each do |fantasy_player| %>
+      <tr>
+        <td><%= fantasy_player.player.name %></td>
+      </tr>
     <% end %>
-  </tr></table>
+  </table>
 <% end %>
