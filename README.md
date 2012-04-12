@@ -11,8 +11,8 @@ Quirks:
   dropped, or modified at any time.
 
 - The FantasyPlayers model also keeps track of the status of its players. The
-  status record must be an integer 0, 1, or 2:
-  0: benched
+  status record must be an integer 1 or 2, or nil:
+  nil: benched
   1: starting
   2: negative
   There should be at most 6 players on a team starting, and 1 player as the

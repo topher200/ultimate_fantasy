@@ -14,7 +14,6 @@ week_one_fantasy_player:
 benched_fantasy_player:
   owner: one
   player: one
-  status: 0
 
 starting_fantasy_player:
   owner: one

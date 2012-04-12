@@ -27,7 +27,7 @@ class FantasyPlayerTest < ActiveSupport::TestCase
 
   test "current_players_for_owner_by_status contains our known players" do
     players_hash = FantasyPlayer.current_players_for_owner_by_status(@owner)
-    assert players_hash["0"].include? fantasy_players(:benched_fantasy_player)
+    assert players_hash[nil].include? fantasy_players(:benched_fantasy_player)
     assert players_hash["1"].include? fantasy_players(:starting_fantasy_player)
     assert players_hash["2"].include? fantasy_players(:negative_fantasy_player)
   end
