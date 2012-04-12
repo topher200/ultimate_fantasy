@@ -2,7 +2,7 @@
 
 one:
   number: 1
-  name: MyString
+  name: number_one
   school: MyString
   ultimate_team: one
   height: 1
@@ -11,16 +11,16 @@ one:
 
 two:
   number: 1
-  name: MyString
+  name: number_two
   school: MyString
-  ultimate_team: one
+  ultimate_team: two
   height: 1
   weight: 1
   club_team: MyString
 
 undrafted:
   number: 10
-  name: MyString
+  name: undrafted
   school: MyString
   ultimate_team: one
   height: 1

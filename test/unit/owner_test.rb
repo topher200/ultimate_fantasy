@@ -3,11 +3,11 @@ require 'test_helper'
 class OwnerTest < ActiveSupport::TestCase
   def setup
     @owner = owners(:one)
-    @player = players(:one)
+    @owned_player = players(:one)
   end
 
   test "players_by_owner returns known owner/player combo" do
-    assert Owner.players_by_owner[@owner].include? @player
+    assert Owner.players_by_owner[@owner].include? @owned_player
   end
 
   test "players_by_owner returns every owner" do
