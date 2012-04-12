@@ -27,4 +27,9 @@ class OwnerTest < ActiveSupport::TestCase
     end
     assert_equal players_from_fantasy_list.sort, players_from_owners.sort
   end
+
+  test "get_players_by_owner returns only the player we know belongs to owner" do
+    assert_equal Owner.get_players_by_owner(@owner).length, 1
+    assert Owner.get_players_by_owner(@owner).include? @owned_player
+  end
 end

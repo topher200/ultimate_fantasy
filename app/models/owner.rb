@@ -12,4 +12,8 @@ class Owner < ActiveRecord::Base
     end
     players_by_owner
   end
+
+  def self.get_players_by_owner(owner)
+    self.players_by_owner[owner]
+  end
 end
