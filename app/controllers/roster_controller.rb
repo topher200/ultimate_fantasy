@@ -1,4 +1,6 @@
 class RosterController < ApplicationController
+  before_filter :authenticate_user!
+  
   def index
     owner = User.find_owner_for_user(current_user)
     @page_title = "#{owner.name}'s Roster"
