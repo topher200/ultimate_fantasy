@@ -1,4 +1,7 @@
 <h1>Owners and their Teams</h1>
+<% if not user_signed_in? %>
+  <h4 class="info_box"><%= link_to "Sign in", new_user_session_path %> to access your roster</h3>
+<% end %>
 
 <% @players_by_owner.keys.each do |owner| %>
   <h2><%= owner.name %></h2>
