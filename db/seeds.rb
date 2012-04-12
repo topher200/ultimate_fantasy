@@ -22,7 +22,11 @@ csv_files.each do |filename|
   end
 end
 
-user = User.find_or_create_by_email(:email => "topher200@gmail.com",
-                                    :password => "topherpassword")
+admin = User.find_or_create_by_email(:email => "admin@admin.com",
+                                     :password => "adminpassword")
 user.toggle!(:admin)
-Owner.find_or_create_by_name(:name => "Topher", :user_id => user)
+Owner.find_or_create_by_name(:name => "Admin", :user_id => admin)
+
+user = User.find_or_create_by_email(:email => "user@user.com",
+                                    :password => "userpassword")
+Owner.find_or_create_by_name(:name => "User", :user_id => user)
