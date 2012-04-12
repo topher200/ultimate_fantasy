@@ -1,5 +1,5 @@
 class RosterController < ApplicationController
-  before_filter :authenticate_user!
+  prepend_before_filter :authenticate_user!
   
   def index
     owner = User.find_owner_for_user(current_user)
