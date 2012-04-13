@@ -3,6 +3,11 @@ class FantasyPlayer < ActiveRecord::Base
   belongs_to :player
   has_many :stats, :through => :player
 
+  BENCH = nil
+  START = "1"
+  NEGATIVE = "2"
+  STATUSES = [BENCH, START, NEGATIVE]
+
   def self.current_players
     self.where(:week => nil)
   end
@@ -10,7 +15,7 @@ class FantasyPlayer < ActiveRecord::Base
   # Returns a hash of (status => fantasy_players).
   def self.current_players_for_owner_by_status(owner)
     players_by_status = {}
-    [nil, "1", "2"].each do |status|
+    STATUSES.each do |status|
       players_by_status[status] = self.where(:week => nil, :owner_id => owner,
                                              :status => status)
     end
@@ -24,14 +29,14 @@ class FantasyPlayer < ActiveRecord::Base
       return false
     end
     current_roster = self.current_players_for_owner_by_status(fantasy_player.owner)
-    if (status == "1")
+    if (status == START)
       # can only have 6 starters
-      if current_roster["1"].length >= 6
+      if current_roster[START].length >= 6
         return false
       end
-    elsif (status == "2")
+    elsif (status == NEGATIVE)
       # can only have one negative
-      if current_roster["2"].length >= 1
+      if current_roster[NEGATIVE].length >= 1
         return false
       end
     end
