@@ -16,4 +16,25 @@ class FantasyPlayer < ActiveRecord::Base
     end
     players_by_status
   end
+
+  # Returns true if able to change status
+  def self.change_status(fantasy_player, status)
+    if (fantasy_player.week != nil)
+      # can't change the status of someone after they've played
+      return false
+    end
+    current_roster = self.current_players_for_owner_by_status(fantasy_player.owner)
+    if (status == "1")
+      # can only have 6 starters
+      if current_roster["1"].length >= 6
+        return false
+      end
+    elsif (status == "2")
+      # can only have one negative
+      if current_roster["2"].length >= 1
+        return false
+      end
+    end
+    fantasy_player.status = status
+  end
 end

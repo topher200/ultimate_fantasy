@@ -4,6 +4,8 @@ class FantasyPlayerTest < ActiveSupport::TestCase
   def setup
     @drafted_player = fantasy_players(:current_fantasy_player)
     @owner = owners(:one)
+    @week_one_player = fantasy_players(:week_one_fantasy_player)
+    @benched_player = fantasy_players(:benched_fantasy_player)
   end
 
   test "current_players only returns players that are current" do
@@ -30,5 +32,32 @@ class FantasyPlayerTest < ActiveSupport::TestCase
     assert players_hash[nil].include? fantasy_players(:benched_fantasy_player)
     assert players_hash["1"].include? fantasy_players(:starting_fantasy_player)
     assert players_hash["2"].include? fantasy_players(:negative_fantasy_player)
+  end
+
+  test "change_status fails if given a player who's already played" do
+    assert_equal FantasyPlayer.change_status(@week_one_player, nil), false
+  end
+
+  test "change_status fails if given a 7th player to start" do
+    # TODO(topher)
+  end
+
+  test "change_status fails if given a 2nd negative player" do
+    player = FantasyPlayer.new(:player => players(:undrafted),
+                               :owner => owners(:one))
+    assert_equal FantasyPlayer.change_status(player, "2"), false
+    player.destroy
+  end
+
+  test "change_status successfully changes the status of a player" do
+    player = FantasyPlayer.new(:player => players(:undrafted),
+                               :owner => owners(:two))
+    FantasyPlayer.change_status(player, nil)
+    assert_equal player.status, nil
+    FantasyPlayer.change_status(player, "1")
+    assert_equal player.status, 1
+    FantasyPlayer.change_status(player, "2")
+    assert_equal player.status, 2
+    player.destroy
   end
 end
