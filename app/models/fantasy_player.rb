@@ -22,7 +22,7 @@ class FantasyPlayer < ActiveRecord::Base
     players_by_status
   end
 
-  # Returns true if able to change status
+  # Returns false if unable to change status
   def self.change_status(fantasy_player, status)
     # can't change the status of someone after they've played
     if (fantasy_player.week != nil)
