@@ -36,5 +36,6 @@ class FantasyPlayer < ActiveRecord::Base
       end
     end
     fantasy_player.status = status
+    fantasy_player.save
   end
 end
