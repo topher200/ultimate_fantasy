@@ -13,4 +13,10 @@ class Owner < ActiveRecord::Base
     end
     players_by_owner
   end
+
+  def self.has_max_starters?(owner)
+    players = FantasyPlayer.current_players_for_owner_by_status(owner)
+    starters = players[FantasyPlayer::START]
+    starters.length >= 6
+  end
 end

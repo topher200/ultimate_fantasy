@@ -27,4 +27,8 @@ class OwnerTest < ActiveSupport::TestCase
     end
     assert_equal players_from_fantasy_list.sort, players_from_owners.sort
   end
+
+  test "has_max_starters? returns false with little starters" do
+    assert_equal Owner.has_max_starters?(@owner), false
+  end
 end
