@@ -24,22 +24,20 @@ class FantasyPlayer < ActiveRecord::Base
 
   # Returns true if able to change status
   def self.change_status(fantasy_player, status)
+    # can't change the status of someone after they've played
     if (fantasy_player.week != nil)
-      # can't change the status of someone after they've played
       return false
     end
-    current_roster = self.current_players_for_owner_by_status(fantasy_player.owner)
-    if (status == START)
-      # can only have 6 starters
-      if current_roster[START].length >= 6
-        return false
-      end
-    elsif (status == NEGATIVE)
-      # can only have one negative
-      if current_roster[NEGATIVE].length >= 1
-        return false
-      end
+
+    # Make sure this doesn't put us over a roster limit
+    owner = fantasy_player.owner
+    if (status == START) and Owner.has_max_starters?(owner)
+      return false
+    elsif (status == NEGATIVE) and Owner.has_max_negative?(owner)
+      return false
     end
+
+    # We're good!
     fantasy_player.status = status
     fantasy_player.save
   end
