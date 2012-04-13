@@ -15,8 +15,16 @@ class Owner < ActiveRecord::Base
   end
 
   def self.has_max_starters?(owner)
+    # Teams are allowed 6 starters
     players = FantasyPlayer.current_players_for_owner_by_status(owner)
     starters = players[FantasyPlayer::START]
     starters.length >= 6
+  end
+
+  def self.has_max_negative?(owner)
+    # Teams are allowed 1 negative
+    players = FantasyPlayer.current_players_for_owner_by_status(owner)
+    negative = players[FantasyPlayer::NEGATIVE]
+    negative.length >= 1
   end
 end
