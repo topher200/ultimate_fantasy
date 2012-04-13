@@ -1,18 +1,52 @@
 <h1><%=@page_title%></h1>
 
-<% @statuses.each do |status_tuple| %>
-  <h2><%= status_tuple[1] %></h2>
-  <table>
-    <% @players_by_status[status_tuple[0]].each do |fantasy_player| %>
-      <tr>
-        <td><%= fantasy_player.player.name %></td>
-        <td>
-          <%= button_to "Start", {:controller => 'fantasy_players',
-              :action => 'update', :id => fantasy_player.id,
-              :fantasy_player => {:status => "1"}},
-            :method => :put %>
-        </td>
-      </tr>
-    <% end %>
-  </table>
-<% end %>
+<h2>Starters</h2>
+<table>
+  <% @players_by_status[FantasyPlayer::START].each do |fantasy_player| %>
+    <tr>
+      <td><%= fantasy_player.player.name %></td>
+      <td>
+        <%= button_to "Bench", {:controller => 'fantasy_players',
+        :action => 'change_status', :id => fantasy_player.id,
+        :status => FantasyPlayer::BENCH}, :method => :change_status %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<br>
+
+<h2>Negative</h2>
+<table>
+  <% @players_by_status[FantasyPlayer::NEGATIVE].each do |fantasy_player| %>
+    <tr>
+      <td><%= fantasy_player.player.name %></td>
+      <td>
+        <%= button_to "Bench", {:controller => 'fantasy_players',
+        :action => 'change_status', :id => fantasy_player.id,
+        :status => FantasyPlayer::BENCH}, :method => :change_status %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<br>
+
+<h2>Bench</h2>
+<table>
+  <% @players_by_status[FantasyPlayer::BENCH].each do |fantasy_player| %>
+    <tr>
+      <td><%= fantasy_player.player.name %></td>
+      <td>
+        <%= button_to "Set Starter", {:controller => 'fantasy_players',
+        :action => 'change_status', :id => fantasy_player.id,
+        :status => FantasyPlayer::START}, :method => :change_status %>
+      </td>
+      <td>
+        <%= button_to "Set Negative", {:controller => 'fantasy_players',
+        :action => 'change_status', :id => fantasy_player.id,
+        :status => FantasyPlayer::NEGATIVE}, :method => :change_status %>
+      </td>
+    </tr>
+  <% end %>
+</table>
