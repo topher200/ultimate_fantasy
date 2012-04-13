@@ -6,7 +6,8 @@ end
 
 def confirm_admin
   if (params[:controller] != 'devise/sessions' and not current_user.try(:admin?))
-    logger.error("Must be Topher to do that!")
+    flash[:error] = "Must be Topher to do that!"
+    logger.warn("confirm_admin check failed! You must be topher to do that")
     redirect_to :controller => '/home'
   end
 end
