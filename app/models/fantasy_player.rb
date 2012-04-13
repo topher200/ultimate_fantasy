@@ -29,6 +29,8 @@ class FantasyPlayer < ActiveRecord::Base
       return false
     end
 
+    # TODO(topher): add confirmation that user is owner of fantasy player
+
     # Make sure this doesn't put us over a roster limit
     owner = fantasy_player.owner
     if (status == START) and Owner.has_max_starters?(owner)
