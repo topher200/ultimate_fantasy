@@ -15,7 +15,8 @@
       <td>
         <%= button_to "Move to Bench", {:controller => 'fantasy_players',
         :action => 'change_status', :id => fantasy_player.id,
-        :status => FantasyPlayer::BENCH}, :method => :change_status %>
+        :status => FantasyPlayer::BENCH}, :class => 'btn btn-primary',
+        :method => :change_status %>
       </td>
     </tr>
   <% end %>
@@ -36,7 +37,8 @@
       <td>
         <%= button_to "Move to Bench", {:controller => 'fantasy_players',
         :action => 'change_status', :id => fantasy_player.id,
-        :status => FantasyPlayer::BENCH}, :method => :change_status %>
+        :status => FantasyPlayer::BENCH}, :class => 'btn btn-primary',
+        :method => :change_status %>
       </td>
     </tr>
   <% end %>
@@ -58,12 +60,14 @@
       <td>
         <%= button_to "Set Starter", {:controller => 'fantasy_players',
         :action => 'change_status', :id => fantasy_player.id,
-        :status => FantasyPlayer::START}, :method => :change_status %>
+        :status => FantasyPlayer::START}, :class => 'btn btn-primary',
+        :method => :change_status %>
       </td>
       <td>
         <%= button_to "Set Negative", {:controller => 'fantasy_players',
         :action => 'change_status', :id => fantasy_player.id,
-        :status => FantasyPlayer::NEGATIVE}, :method => :change_status %>
+        :status => FantasyPlayer::NEGATIVE}, :class => 'btn btn-primary',
+        :method => :change_status %>
       </td>
     </tr>
   <% end %>
