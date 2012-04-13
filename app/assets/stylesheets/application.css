@@ -7,7 +7,7 @@
  *= require twitter/bootstrap
 */
 
-body {
+body .container-fluid{
     padding-top:60px;
 }
 
