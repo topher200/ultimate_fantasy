@@ -1,7 +1,11 @@
 <h1><%=@page_title%></h1>
 
-<h2>Starters</h2>
 <table>
+  <tr>
+    <th>
+      <h3>Starters</h3>
+    </th>
+  </tr>
   <% @players_by_status[FantasyPlayer::START].each do |fantasy_player| %>
     <tr>
       <td><%= fantasy_player.player.name %></td>
@@ -16,8 +20,12 @@
 
 <br>
 
-<h2>Negative</h2>
 <table>
+  <tr>
+    <th>
+      <h3>Negative</h3>
+    </th>
+  </tr>
   <% @players_by_status[FantasyPlayer::NEGATIVE].each do |fantasy_player| %>
     <tr>
       <td><%= fantasy_player.player.name %></td>
@@ -32,8 +40,12 @@
 
 <br>
 
-<h2>Bench</h2>
 <table>
+  <tr>
+    <th>
+      <h3>Bench</h3>
+    </th>
+  </tr>
   <% @players_by_status[FantasyPlayer::BENCH].each do |fantasy_player| %>
     <tr>
       <td><%= fantasy_player.player.name %></td>
