@@ -12,7 +12,7 @@
     <tr>
       <td><%= fantasy_player.player.name %></td>
       <td>
-        <%= button_to "Bench", {:controller => 'fantasy_players',
+        <%= button_to "Move to Bench", {:controller => 'fantasy_players',
         :action => 'change_status', :id => fantasy_player.id,
         :status => FantasyPlayer::BENCH}, :method => :change_status %>
       </td>
@@ -32,7 +32,7 @@
     <tr>
       <td><%= fantasy_player.player.name %></td>
       <td>
-        <%= button_to "Bench", {:controller => 'fantasy_players',
+        <%= button_to "Move to Bench", {:controller => 'fantasy_players',
         :action => 'change_status', :id => fantasy_player.id,
         :status => FantasyPlayer::BENCH}, :method => :change_status %>
       </td>
