@@ -31,15 +31,13 @@
     </div>
   </div>
 
-  <% if flash[:error] %>
-    <h3 class="error_box"><%= flash[:error] %> </h3>
-  <% end %>
-  <% if flash[:notice] %>
-    <h3 class="info_box"><%= flash[:notice] %> </h3>
-  <% end %>
-
-
   <div class="container-fluid app-body">
+    <% if flash[:error] %>
+      <h3 class="error_box"><%= flash[:error] %> </h3>
+    <% end %>
+    <% if flash[:notice] %>
+      <h3 class="info_box"><%= flash[:notice] %> </h3>
+    <% end %>
     <%= yield %>
   </div>
 
