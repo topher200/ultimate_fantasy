@@ -10,6 +10,16 @@ class FantasyPlayersController < ApplicationController
     end
   end
 
+  def change_status
+    fantasy_player = FantasyPlayer.find(params[:id])
+    logger.fatal(params[:status])
+    if not FantasyPlayer.change_status(fantasy_player, params[:status])
+      flash[:error] = "Error changing fantasy player's status"
+    end
+
+    redirect_to '/roster/index'
+  end
+
   # GET /fantasy_players/1
   # GET /fantasy_players/1.json
   def show

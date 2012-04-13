@@ -8,6 +8,7 @@ Fantasy::Application.routes.draw do
   get "home/index"
   match 'draft/index'
   post 'draft/draft'
+  post 'fantasy_players/change_status'
   
   root :to => 'home#index'
 end
