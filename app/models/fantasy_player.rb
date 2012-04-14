@@ -16,7 +16,7 @@ class FantasyPlayer < ActiveRecord::Base
   def self.players_for_owner_by_status(owner, week)
     players_by_status = {}
     STATUSES.each do |status|
-      players_by_status[status] = self.where(:week => nil, :owner_id => owner,
+      players_by_status[status] = self.where(:week => week, :owner_id => owner,
                                              :status => status)
     end
     players_by_status
