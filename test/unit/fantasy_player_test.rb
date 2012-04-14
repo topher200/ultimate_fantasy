@@ -2,10 +2,12 @@ require 'test_helper'
 
 class FantasyPlayerTest < ActiveSupport::TestCase
   def setup
-    @drafted_player = fantasy_players(:current_fantasy_player)
+    @drafted_fantasy_player = fantasy_players(:current_fantasy_player)
     @owner = owners(:one)
-    @week_one_player = fantasy_players(:week_one_fantasy_player)
-    @benched_player = fantasy_players(:benched_fantasy_player)
+    @week_one_fantasy_player = fantasy_players(:week_one_fantasy_player)
+    @benched_fantasy_player = fantasy_players(:benched_fantasy_player)
+    @starting_fantasy_player = fantasy_players(:starting_fantasy_player)
+    @negative_fantasy_player = fantasy_players(:negative_fantasy_player)
   end
 
   test "current_players only returns players that are current" do
@@ -15,7 +17,7 @@ class FantasyPlayerTest < ActiveSupport::TestCase
   end
 
   test "current_players includes our known current player" do
-    assert FantasyPlayer.current_players.include? @drafted_player
+    assert FantasyPlayer.current_players.include? @drafted_fantasy_player
   end
 
   test "current_players returns our 4 current players" do
@@ -29,13 +31,13 @@ class FantasyPlayerTest < ActiveSupport::TestCase
 
   test "current_players_for_owner_by_status contains our known players" do
     players_hash = FantasyPlayer.current_players_for_owner_by_status(@owner)
-    assert players_hash[nil].include? fantasy_players(:benched_fantasy_player)
-    assert players_hash["1"].include? fantasy_players(:starting_fantasy_player)
-    assert players_hash["2"].include? fantasy_players(:negative_fantasy_player)
+    assert players_hash[nil].include? @benched_fantasy_player
+    assert players_hash["1"].include? @starting_fantasy_player
+    assert players_hash["2"].include? @negative_fantasy_player
   end
 
   test "change_status fails if given a player who's already played" do
-    assert_equal FantasyPlayer.change_status(@week_one_player, nil), false
+    assert_equal FantasyPlayer.change_status(@week_one_fantasy_player, nil), false
   end
 
   test "change_status fails if given a 7th player to start" do
