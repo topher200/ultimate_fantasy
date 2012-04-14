@@ -36,6 +36,11 @@ class FantasyPlayerTest < ActiveSupport::TestCase
     assert players_hash[FantasyPlayer::NEGATIVE].include? @negative_fantasy_player
   end
 
+  test "players_for_owner_by_status contains our known week 1 player" do
+    players_hash = FantasyPlayer.players_for_owner_by_status(@owner, 1)
+    assert players_hash[FantasyPlayer::START].include? @week_one_fantasy_player
+  end
+
   test "change_status fails if given a player who's already played" do
     assert_equal FantasyPlayer.change_status(@week_one_fantasy_player, nil), false
   end

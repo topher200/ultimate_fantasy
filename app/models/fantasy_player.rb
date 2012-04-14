@@ -13,7 +13,7 @@ class FantasyPlayer < ActiveRecord::Base
   end
 
   # Returns a hash of (status => fantasy_players).
-  def self.current_players_for_owner_by_status(owner)
+  def self.players_for_owner_by_status(owner, week)
     players_by_status = {}
     STATUSES.each do |status|
       players_by_status[status] = self.where(:week => nil, :owner_id => owner,
@@ -21,6 +21,10 @@ class FantasyPlayer < ActiveRecord::Base
     end
     players_by_status
   end
+  def self.current_players_for_owner_by_status(owner)
+    self.players_for_owner_by_status(owner, nil)
+  end
+
 
   # Returns false if unable to change status
   def self.change_status(fantasy_player, status)
