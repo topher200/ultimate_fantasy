@@ -31,9 +31,9 @@ class FantasyPlayerTest < ActiveSupport::TestCase
 
   test "current_players_for_owner_by_status contains our known players" do
     players_hash = FantasyPlayer.current_players_for_owner_by_status(@owner)
-    assert players_hash[nil].include? @benched_fantasy_player
-    assert players_hash["1"].include? @starting_fantasy_player
-    assert players_hash["2"].include? @negative_fantasy_player
+    assert players_hash[FantasyPlayer::BENCH].include? @benched_fantasy_player
+    assert players_hash[FantasyPlayer::START].include? @starting_fantasy_player
+    assert players_hash[FantasyPlayer::NEGATIVE].include? @negative_fantasy_player
   end
 
   test "change_status fails if given a player who's already played" do
@@ -54,11 +54,11 @@ class FantasyPlayerTest < ActiveSupport::TestCase
   test "change_status successfully changes the status of a player" do
     player = FantasyPlayer.new(:player => players(:undrafted),
                                :owner => owners(:two))
-    FantasyPlayer.change_status(player, nil)
+    FantasyPlayer.change_status(player, FantasyPlayer::BENCH)
     assert_equal player.status, nil
-    FantasyPlayer.change_status(player, "1")
+    FantasyPlayer.change_status(player, FantasyPlayer::START)
     assert_equal player.status, 1
-    FantasyPlayer.change_status(player, "2")
+    FantasyPlayer.change_status(player, FantasyPlayer::NEGATIVE)
     assert_equal player.status, 2
     player.destroy
   end
